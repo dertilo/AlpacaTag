@@ -1,6 +1,12 @@
 # AlpacaTag
 **_AlpacaTag is an active learning-based crowd annotation framework for sequence tagging, such as named-entity recognition (NER)._**
 
+## setup
+    
+    docker build -t alpaca .
+    docker run -it --rm -p 8000:8000 alpaca:latest bash
+    python AlpacaTag/annotation/AlpacaTag/manage.py createsuperuser --username="superuser"
+    python AlpacaTag/annotation/AlpacaTag/manage.py runserver 0.0.0.0:8000
 
 [Website](http://inklab.usc.edu/AlpacaTag/)  &nbsp;&nbsp;&nbsp;&nbsp;    [Documenations](https://github.com/INK-USC/AlpacaTag/wiki/ ) &nbsp;&nbsp;&nbsp;&nbsp;  [Paper](http://inklab.usc.edu/AlpacaTag/acl2019alpaca.pdf) &nbsp;&nbsp;&nbsp;&nbsp; [Poster](http://inklab.usc.edu/AlpacaTag/poster.pdf)
 
