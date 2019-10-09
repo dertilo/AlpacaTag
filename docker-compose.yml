@@ -1,0 +1,25 @@
+version: "3"
+services:
+
+  annotation:
+    image: alpacaimage
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/host_alpaca # TODO: just for debug
+
+    command: ["bash","/host_alpaca/run_annotation_webapp.sh"]
+    environment:
+      ADMIN_USERNAME: "admin"
+      ADMIN_PASSWORD: "password"
+      ADMIN_EMAIL: "admin@example.com"
+      HOST: "0.0.0.0"
+      PORT: 8800
+    ports:
+      - 8000:8800
+
+  al-server:
+    image: alpacaimage
+    command: bash -c "cd AlpacaTag/alpaca_server && pip install . && alpaca-serving-start"
+
